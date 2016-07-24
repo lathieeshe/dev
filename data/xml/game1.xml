@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestGame>
+	<RoundOne>
+		<Question Category = Everything is real>
+			<amount value_1 = 100>
+				<value_1_Question>To be or not be</value_1_Question>
+				<value_1_Answer>Shakespear</value_1_Answer>
+			</amount>
+			<amount value_1 = 200>
+				<value_1_Question>Second Breakfast</value_1_Question>
+				<value_1_Answer>The lord of the Rings</value_1_Answer>
+			</amount>
+			<amount value_1 = 300>
+				<value_1_Question>Why so Serious?</value_1_Question>
+				<value_1_Answer>The Dark Knight</value_1_Answer>
+			</amount>
+			<amount value_1 = 400>
+				<value_1_Question>Hakuna Matata</value_1_Question>
+				<value_1_Answer>Lion King</value_1_Answer>
+			</amount>
+			<amount value_1 = 500>
+				<value_1_Question>Cheryl</value_1_Question>
+				<value_1_Answer>My Butts</value_1_Answer>
+			</amount>
+		</Question>
+	</RoundOne>
+</TestGame>
