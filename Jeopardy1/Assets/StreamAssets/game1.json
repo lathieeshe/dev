@@ -1,0 +1,29 @@
+[
+  {
+    "id": 0,
+    "MainCatergory": "What's My Name",
+    "Amount100": 100,
+    "Question100": "Name of my name",
+    "Answer100": "Lathieeshe",
+
+    "Amount200": 200,
+    "Question200": "Wife Name",
+    "Answer200": "Cheryl",
+
+    "Amount300": 300,
+    "Question300": "Baby Name",
+    "Answer300": "Indiana",
+
+    
+    "Amount400": 400,
+    "Question400": "Family Name",
+    "Answer400": "Thillainathan",
+
+   
+    "Amount500": 500,
+    "Question500": "Cheryl Family Name",
+    "Answer500": "Chen"
+
+
+  }
+]
