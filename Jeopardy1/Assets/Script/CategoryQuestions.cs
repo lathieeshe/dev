@@ -4,25 +4,46 @@ using LitJson;
 using System.Collections.Generic;
 using System.IO;
 using System;
+using UnityEngine.UI;
 
 public class CategoryQuestions : MonoBehaviour
 {
     private List<GameQuestions> database = new List<GameQuestions>();
     private JsonData QuestionData;
-
+    public Text Jeo;
+  
     void Start()
     {
+
+           
         QuestionData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/StreamAssets/game1.json"));
         ConstructQuestionDatabase();
         Debug.Log(database[0].MainCategory);
+
+        var objects = GameObject.FindGameObjectsWithTag("Player");
+        var objectCount = objects.Length;
+        for (var j = 0; j < objects.Length; j++)
+        {
+            Debug.Log(objects[j].GetComponent<Text>().text);
+
+            objects[j].GetComponent<Text>().text = database[j].Answer;
+        }
+        
     }
     /*
-     *"id": 0,
-     "MainCatergory": "What's My Name",
-     "Amount100": 100,
-     "Question100": "Name of my name",
-     "Answer100": "Lathieeshe",
-     */
+    void OnGUI()
+    {
+
+        for (int j=0; j <)
+        GUI.Button(new Rect(10, 10, 50, 50), database[0].Amount.ToString());
+    }
+        
+         *"id": 0,
+         "MainCatergory": "What's My Name",
+         "Amount100": 100,
+         "Question100": "Name of my name",
+         "Answer100": "Lathieeshe",
+         */
     void ConstructQuestionDatabase()
     {
         for (int i = 0; i < QuestionData.Count; i++)
