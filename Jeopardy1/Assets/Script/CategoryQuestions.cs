@@ -10,48 +10,58 @@ public class CategoryQuestions : MonoBehaviour
 {
     private List<GameQuestions> database = new List<GameQuestions>();
     private JsonData QuestionData;
-    public Text Jeo;
-  
+  //  public Text Jeo;
+   public Button[,] board = new Button[5,6];
+   List<GameBoard> gameboard = new List<GameBoard>();
+
     void Start()
     {
 
            
         QuestionData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/StreamAssets/game1.json"));
         ConstructQuestionDatabase();
-        Debug.Log(database[0].MainCategory);
-
-        var objects = GameObject.FindGameObjectsWithTag("Player");
+        // Debug.Log(database[0].MainCategory);
+        foreach (var data in gameboard)
+        {
+         //   Debug.Log("Main Category: " + data.maincategory);
+           // Debug.Log("Amount 100: " + data.amount200);
+          //  Debug.Log("Question 100: " + data.question200);
+           // Debug.Log("Answer 100: " + data.answer200);
+        }
+       var objects = GameObject.FindGameObjectsWithTag("Player");
         var objectCount = objects.Length;
         for (var j = 0; j < objects.Length; j++)
         {
-            Debug.Log(objects[j].GetComponent<Text>().text);
+          //  Debug.Log(objects[j].GetComponent<Text>().text);
 
             objects[j].GetComponent<Text>().text = database[j].Answer;
         }
         
-    }
-    /*
-    void OnGUI()
-    {
+       
 
-        for (int j=0; j <)
-        GUI.Button(new Rect(10, 10, 50, 50), database[0].Amount.ToString());
     }
-        
-         *"id": 0,
-         "MainCatergory": "What's My Name",
-         "Amount100": 100,
-         "Question100": "Name of my name",
-         "Answer100": "Lathieeshe",
-         */
+   
     void ConstructQuestionDatabase()
     {
         for (int i = 0; i < QuestionData.Count; i++)
         {
-            database.Add(new GameQuestions((int)QuestionData[i]["id"], QuestionData[i]["MainCatergory"].ToString(),
-                (int)QuestionData[i]["Amount100"],QuestionData[i]["Question100"].ToString(),
-                QuestionData[i]["Answer100"].ToString())
-                );
+            /* database.Add(new GameQuestions((int)QuestionData[i]["id"], QuestionData[i]["MainCatergory"].ToString(),
+                 (int)QuestionData[i]["Amount100"], QuestionData[i]["Question100"].ToString(), QuestionData[i]["Answer100"].ToString(),
+                 (int)QuestionData[i]["Amount200"], QuestionData[i]["Question200"].ToString(), QuestionData[i]["Answer200"].ToString(),
+                 (int)QuestionData[i]["Amount300"], QuestionData[i]["Question300"].ToString(), QuestionData[i]["Answer300"].ToString(),
+                 (int)QuestionData[i]["Amount400"], QuestionData[i]["Question400"].ToString(), QuestionData[i]["Answer400"].ToString(),
+                 (int)QuestionData[i]["Amount500"], QuestionData[i]["Question500"].ToString(), QuestionData[i]["Answer500"].ToString())
+                 );*/
+            Debug.Log(QuestionData.Count);
+           Debug.Log((int)QuestionData[i]["Amount100"]);
+            //gameboard(QuestionData[i]["MainCatergory"].ToString(), (int)QuestionData[i]["Amount100"], QuestionData[i]["Question100"].ToString(),QuestionData[i]["Answer100"].ToString());
+            gameboard.Add(new GameBoard(QuestionData[i]["MainCatergory"].ToString(), 
+                (int)QuestionData[i]["Amount100"], QuestionData[i]["Question100"].ToString(), QuestionData[i]["Answer100"].ToString(),
+                (int)QuestionData[i]["Amount200"], QuestionData[i]["Question200"].ToString(), QuestionData[i]["Answer200"].ToString(),
+                (int)QuestionData[i]["Amount300"], QuestionData[i]["Question300"].ToString(), QuestionData[i]["Answer300"].ToString(),
+                (int)QuestionData[i]["Amount400"], QuestionData[i]["Question400"].ToString(), QuestionData[i]["Answer400"].ToString(),
+                (int)QuestionData[i]["Amount500"], QuestionData[i]["Question500"].ToString(), QuestionData[i]["Answer500"].ToString()
+                ));
         }
     }
 }
